@@ -1,7 +1,8 @@
+import thunk from 'redux-thunk';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import expensesReducer from '../reducers/expenses';
 import filtersReducer from '../reducers/filters';
-import thunk from 'redux-thunk';
+import authReducer from '../reducers/auth';
 
 // Store creation
 export default () => {
@@ -11,6 +12,7 @@ export default () => {
 
   const store = createStore(
     combineReducers({
+      auth: authReducer,
       expenses: expensesReducer,
       filters: filtersReducer
     }),
